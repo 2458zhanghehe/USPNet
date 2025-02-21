@@ -160,7 +160,7 @@ class SORS(nn.Module):
 
         #self.ln = nn.LayerNorm(in_channels)
         self.ln = nn.GroupNorm(num_groups=1, num_channels=in_channels)
-        self.scMLP = SCMLP(in_channels, )
+        self.scMLP = SCMLP(in_channels,self.hidden_dim, in_channels)
         self.oriconv = ORIConv(in_channels, in_channels)
         self.conv = nn.Conv2d(2 * in_channels, out_channels, kernel_size=3, padding=1)
 
